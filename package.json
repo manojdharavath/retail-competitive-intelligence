@@ -1,0 +1,11 @@
+{
+  "name": "retail-competitive-intelligence-root",
+  "version": "1.0.0",
+  "description": "Retail Competitive Intelligence Prototype — Bridge AI AIML Intern Evaluation",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "seed": "cd backend && npm run seed",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  }
+}
