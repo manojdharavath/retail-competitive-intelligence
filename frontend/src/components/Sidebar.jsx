@@ -37,7 +37,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
       {/* Sidebar Container: Fixed on Desktop, Slide-over Drawer on Mobile */}
       <aside 
-        className={`fixed lg:static top-0 left-0 z-50 w-64 bg-slate-900 text-slate-300 min-h-screen lg:min-h-[calc(100vh-65px)] p-4 flex flex-col justify-between shrink-0 transition-transform duration-300 ease-in-out ${
+        className={`fixed lg:relative inset-y-0 left-0 z-50 lg:z-auto w-64 bg-slate-900 text-slate-300 h-full p-4 flex flex-col justify-between shrink-0 overflow-y-auto transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
