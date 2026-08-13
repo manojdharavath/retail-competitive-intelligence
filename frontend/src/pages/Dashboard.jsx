@@ -39,7 +39,7 @@ import {
 const BRAND_COLORS = {
   Intel: '#0068B5',
   AMD: '#ED1C24',
-  Qualcomm: '#3253DC',
+  Qualcomm: '#9333EA', // Distinct Vibrant Purple (No longer overlaps with Intel Blue!)
   Apple: '#475569'
 };
 
@@ -95,7 +95,7 @@ const Dashboard = () => {
       <FilterBar filters={filters} onFilterChange={setFilters} onReset={handleResetFilters} />
 
       {/* KPI Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
         <MetricCard
           title="Total Products"
           value={loading ? '...' : summary?.totalProducts || 0}
@@ -127,7 +127,7 @@ const Dashboard = () => {
         <MetricCard
           title="Compliance Leader"
           value={loading ? '...' : summary?.complianceLeader || 'N/A'}
-          subtext="S1-S5 & P1-P5 Score"
+          subtext="S1-S2 & P1-P5 Score"
           icon={CheckCircle2}
           color="amber"
         />

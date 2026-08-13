@@ -11,19 +11,31 @@ const MetricCard = ({ title, value, subtext, icon: Icon, color = 'blue' }) => {
   };
 
   return (
-    <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start justify-between">
-      <div>
-        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{title}</p>
-        <h3 className="text-2xl font-extrabold text-slate-900 mt-1">{value}</h3>
-        {subtext && <p className="text-xs text-slate-500 mt-1 font-medium">{subtext}</p>}
+    <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between overflow-hidden relative min-w-0">
+      <div className="flex items-start justify-between gap-2">
+        <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider truncate pr-1">
+          {title}
+        </p>
+        {Icon && (
+          <div className={`p-2 rounded-lg border shrink-0 ${colorMap[color] || colorMap.blue}`}>
+            <Icon className="w-4 h-4" />
+          </div>
+        )}
       </div>
-      {Icon && (
-        <div className={`p-3 rounded-lg border ${colorMap[color] || colorMap.blue}`}>
-          <Icon className="w-5 h-5" />
-        </div>
-      )}
+
+      <div className="mt-2">
+        <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight truncate">
+          {value}
+        </h3>
+        {subtext && (
+          <p className="text-[11px] text-slate-500 mt-1 font-medium truncate">
+            {subtext}
+          </p>
+        )}
+      </div>
     </div>
   );
 };
 
 export default MetricCard;
+

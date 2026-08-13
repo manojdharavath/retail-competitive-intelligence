@@ -1,70 +1,87 @@
 # Retail Competitive Intelligence Dashboard 🚀
 
-> **Bridge AI AIML Intern Evaluation Project Prototype**  
-> *A clean, full-stack multi-brand benchmark platform comparing pricing, promotions, search visibility, and listing compliance across computing leaders.*
+> **Bridge AI AIML Evaluation Project — Multi-Brand E-Commerce Benchmark**  
+> *A clean, full-stack multi-brand competitive intelligence platform tracking pricing, promotions, shelf visibility, search voice, and page compliance across computing industry leaders.*
 
 ---
 
 ## 📌 Project Overview
-The **Retail Competitive Intelligence Dashboard** tracks daily retail metrics for computing brands (**Intel**, **AMD**, **Qualcomm**, **Apple**) across leading OEMs (**Dell**, **HP**, **Lenovo**, **Acer**, **Asus**, **MSI**, **Apple**) and retailers (**Newegg US**, **Mercado Libre Brazil**).
+The **Retail Competitive Intelligence Dashboard** tracks daily retail metrics for computing chip brands (**Intel**, **AMD**, **Qualcomm**, **Apple**) across leading OEMs (**Dell**, **HP**, **Lenovo**, **Acer**, **Asus**, **MSI**, **Apple**) and retail platforms (**Newegg US**, **Mercado Libre Brazil**).
 
-This application moves beyond single-brand analytics by offering a fair, comparative side-by-side benchmark to empower retail and marketing teams with actionable business insights.
-
----
-
-## 🎯 Problem Statement
-In retail electronics, purchasing decisions are directly driven by real-time pricing, promotional markdowns, and listing compliance. Historically, tracking rival brand positioning across multiple platforms was a manual black box. This prototype provides an automated, daily view of share of shelf, price trends, listing compliance, banner prominence, and search voice.
+Instead of single-brand tracking, this platform provides a fair, side-by-side comparative benchmark measuring how each brand shows up in retail: **pricing, promotional markdowns, shelf share, search ranking position, homepage banner dominance, and retailer page compliance**.
 
 ---
 
-## ✨ Features
+## 🎯 Scope & Attribution Rules (PDF Compliant)
 
-- **📊 Interactive Executive Dashboard**: Live KPIs (Total Products, Avg Price, Avg Discount, Share of Shelf Leader, Compliance Leader, Active Promotions) with interactive Recharts diagrams.
-- **🏆 Composite Brand Competitiveness Index**: 0–100 rankable score rolling up pricing, visibility, compliance, banner share, and search voice.
-- **⚡ Real-Time Anomaly & Alerts**: Live flags for sharp price drops ($>20\%$), compliance drops ($<85\%$), and homepage banner dominance shifts.
-- **🏷️ SKU Explorer & Product Catalog**: Searchable product table with instant filtering by CPU, GPU, OEM, brand, and retail platform + **CSV Exporter**.
-- **💰 Dedicated Pricing & Promotional Intelligence**: Deep-dive page tracking min/avg/max price range spectrums, discount depth %, 30-day market price trend lines, and active deals catalog.
-- **🔍 SKU Detail & Price History**: Individual product view featuring technical specs, detected tier/certification badges, retailer compliance audit checks, and a 30-day historical price line chart.
-- **⚖️ Side-by-Side Brand Comparison**: Benchmark matrix comparing Intel vs AMD vs Qualcomm vs Apple across all 7 core retail metrics + **CSV Exporter**.
-- **🛡️ 7-Point Retailer Compliance Audit**: Page-level audit rubric (S1-S2 listing tile checks, P1-P5 product page checks) using Bridge AI's **85% Notebook / 15% Desktop** weighted score calculation with rubric legend.
+| Category | Specification Scope |
+| :--- | :--- |
+| **Industry** | Gaming Segment |
+| **Tracked Brands** | Intel, AMD, Qualcomm, Apple |
+| **Tracked OEMs** | Dell, HP, Lenovo, Acer, Asus, MSI, Apple |
+| **Tracked Websites** | Newegg (US), Mercado Libre (Brazil) |
+| **Product Types** | Notebooks, Desktops, Workstations, Tablets, CPU/GPU Components |
+| **Exclusions** | Accessories (Monitors, Keyboards, Cameras, Gift Cards) |
+| **Brand Attribution Logic** | • **Brand**: Chip/SoC supplier (`Intel`, `AMD`, `Qualcomm`, `Apple`)<br>• **OEM**: Computer maker (`Dell`, `HP`, `Lenovo`, etc.)<br>• **Apple Products**: Same entity in both fields (`Brand: Apple`, `OEM: Apple`)<br>• **CPU/GPU Standalone Components**: `OEM = N/A` (No PC maker attached) |
+
+---
+
+## ✨ Key Features & Measurements
+
+- **📊 Executive Benchmark Dashboard**: Real-time KPIs for Total Products, Average Price, Average Discount %, Share of Shelf Leader, Compliance Leader, and Active Promotions.
+- **🏆 Composite Brand Competitiveness Index**: A 0–100 rankable composite score rolling up Share of Shelf (30%), Compliance Score (30%), Pricing Competitiveness (20%), and Banner Share (20%).
+- **⚡ Real-Time Anomaly & Alerts**: Dynamic flags for sharp price drops ($>20\%$), compliance drops ($<85\%$), and banner dominance shifts.
+- **💰 Pricing & Promotional Intelligence**: Deep-dive tracking average/min/max price spectrums, discount depth %, 30-day market price trend lines (with distinct brand colors), and flash sale badges.
+- **🛡️ 7-Point Retailer Compliance Audit**: Page-level compliance rubric (S1-S2 listing tile checks, P1-P5 product page checks) weighted **85% Notebook / 15% Desktop**.
 - **🖼️ Homepage Banner Tracking**: Daily monitoring of prime retail real estate, banner share, and active brand promotional campaigns.
-- **🔎 Share of Voice (Search Visibility)**: Keyword ranking positions (#1 to #10) per brand across search pages.
-- **🤖 Gemini AI Assistant**: Natural language Q&A interface where the backend aggregates MongoDB metrics into context before feeding to Gemini AI for clear, zero-hallucination explanations.
-- **🕸️ Modular Scraper Architecture**: Structured Playwright scrapers for Newegg and Mercado Libre data ingestion.
+- **🔎 Share of Voice (Search Visibility)**: Rank tracking (#1 to #10) per brand across keywords (e.g. `"gaming laptop"`, `"AI PC"`).
+- **🏷️ SKU Explorer & Product Catalog**: Searchable product table with instant filtering by CPU, GPU, OEM, brand, and retail platform + **CSV Exporter**.
+- **🤖 Gemini AI Assistant**: Natural language Q&A interface powered by **Google Gemini 1.5 Flash** using Retrieval-Augmented Generation (RAG) over real MongoDB metrics.
+- **📱 Fully Responsive UI**: Responsive sidebar drawer with mobile backdrop blur and hamburger menu navigation toggle.
+
+---
+
+## 🎨 High-Contrast Brand Color Palette
+
+To ensure clear visual distinction on trend charts, legends, and graphs:
+* **Intel**: Royal Blue (`#0068B5`)
+* **AMD**: Crimson Red (`#ED1C24`)
+* **Qualcomm**: Vibrant Purple (`#9333EA`)
+* **Apple**: Slate Dark Gray (`#475569`)
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React.js** (Vite build engine)
-- **Tailwind CSS** & **Lucide React** (modern UI styling & icons)
-- **Recharts** (data visualization & charts)
-- **React Router DOM v6** (SPA routing)
-- **Axios** (REST API client)
+- **React.js 18** (Vite build engine)
+- **Tailwind CSS** (responsive utility styling)
+- **Lucide React** (modern iconography)
+- **Recharts** (interactive data visualizer)
+- **React Router DOM v6** (SPA page routing)
+- **Axios** (REST API HTTP client)
 
 ### Backend
 - **Node.js** & **Express.js** (REST API server)
-- **MongoDB** & **Mongoose** (schema-based database)
-- **MongoDB Memory Server** (zero-config, out-of-the-box fallback)
-- **@google/generative-ai** (Gemini AI integration)
-- **Playwright** (web scraping structure)
+- **MongoDB** & **Mongoose ORM** (schema models & aggregations)
+- **MongoDB Memory Server** (zero-config, instant local fallback DB)
+- **@google/generative-ai** (Google Gemini 1.5 Flash SDK)
 
 ---
 
-## 📂 Project Architecture
+## 📂 Project Structure
 
 ```
 retail-competitive-intelligence/
 ├── backend/
 │   ├── config/
-│   │   └── db.js                 # Mongo / MongoMemoryServer fallback
+│   │   └── db.js                 # MongoDB / MongoMemoryServer connection handler
 │   ├── models/
-│   │   ├── Product.js
-│   │   ├── PriceHistory.js
-│   │   ├── RetailerAudit.js
-│   │   ├── Banner.js
-│   │   └── SearchVisibility.js
+│   │   ├── Product.js            # SKU schema with Brand & OEM attributes
+│   │   ├── PriceHistory.js       # 30-day daily price flux records
+│   │   ├── RetailerAudit.js      # S1-S2 & P1-P5 compliance rubric checks
+│   │   ├── Banner.js             # Homepage banner tracking schema
+│   │   └── SearchVisibility.js   # Search keyword ranking position schema
 │   ├── routes/
 │   │   ├── productRoutes.js
 │   │   ├── analyticsRoutes.js
@@ -74,13 +91,13 @@ retail-competitive-intelligence/
 │   │   ├── analyticsController.js
 │   │   └── aiController.js
 │   ├── services/
-│   │   ├── analyticsService.js   # MongoDB aggregation pipelines & competitiveness engine
-│   │   └── geminiService.js      # Gemini API + metric context prompt
+│   │   ├── analyticsService.js   # MongoDB aggregation pipelines & rollup logic
+│   │   └── geminiService.js      # Gemini API + RAG prompt context & fallback engine
 │   ├── scrapers/
-│   │   ├── neweggScraper.js
-│   │   └── mercadoLivreScraper.js
+│   │   ├── neweggScraper.js      # Newegg e-commerce scraper module
+│   │   └── mercadoLivreScraper.js # Mercado Libre e-commerce scraper module
 │   ├── seed/
-│   │   └── seedData.js           # Realistic data generator
+│   │   └── seedData.js           # Multi-brand catalog seed script
 │   ├── middleware/
 │   │   └── errorHandler.js
 │   ├── server.js
@@ -88,11 +105,11 @@ retail-competitive-intelligence/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Sidebar.jsx
-│   │   │   ├── FilterBar.jsx
-│   │   │   ├── MetricCard.jsx
-│   │   │   └── ProductTable.jsx
+│   │   │   ├── Navbar.jsx        # Clean header with mobile menu toggle
+│   │   │   ├── Sidebar.jsx       # Fixed desktop sidebar & mobile slide-out drawer
+│   │   │   ├── FilterBar.jsx     # Dynamic multi-attribute filter bar
+│   │   │   ├── MetricCard.jsx    # Overflow-safe KPI card component
+│   │   │   └── ProductTable.jsx  # Searchable product data grid
 │   │   ├── pages/
 │   │   │   ├── Dashboard.jsx
 │   │   │   ├── Products.jsx
@@ -104,7 +121,7 @@ retail-competitive-intelligence/
 │   │   │   ├── SearchVisibility.jsx
 │   │   │   └── AIAssistant.jsx
 │   │   ├── utils/
-│   │   │   └── exportUtils.js    # CSV Exporter utility
+│   │   │   └── exportUtils.js    # CSV export utility
 │   │   ├── services/
 │   │   │   └── api.js
 │   │   ├── App.jsx
@@ -113,35 +130,11 @@ retail-competitive-intelligence/
 └── README.md
 ```
 
-
 ---
 
-## 📡 API Endpoints
+## ⚡ Setup & Local Execution
 
-- `GET /api/products` — Filter products by brand, oem, retailer, country, type, or search term
-- `GET /api/products/:id` — Get product detail with price history & compliance audits
-- `GET /api/analytics/summary` — Aggregate KPIs and dynamic text insights
-- `GET /api/analytics/share-of-shelf` — Brand product count and catalog percentage
-- `GET /api/analytics/pricing` — Average price, min price, max price, avg discount
-- `GET /api/analytics/promotions` — Discount depth and discounted product volume
-- `GET /api/analytics/compliance` — Weighted compliance scores (85% Notebook / 15% Desktop)
-- `GET /api/analytics/competitiveness` — Composite 0-100 Brand Competitiveness Index score rollup
-- `GET /api/analytics/alerts` — Real-time sharp price drop & listing compliance anomaly flags
-- `GET /api/analytics/banners` — Banner count & homepage share percentage
-- `GET /api/analytics/search` — Keyword ranking positions per brand
-- `POST /api/ai/query` — Execute MongoDB aggregation & submit prompt context to Gemini
-- `GET /api/health` — API status check
-
-
----
-
-## ⚡ Setup & Installation
-
-### Prerequisites
-- Node.js (v18+)
-- npm
-
-### 1. Clone & Install Dependencies
+### 1. Install Dependencies
 
 ```bash
 # Backend
@@ -153,7 +146,7 @@ cd ../frontend
 npm install
 ```
 
-### 2. Environment Variables
+### 2. Environment Configuration
 
 Create `backend/.env`:
 ```env
@@ -161,39 +154,26 @@ PORT=5000
 MONGODB_URI=
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
-*(Note: If `MONGODB_URI` is left blank, the backend automatically uses `mongodb-memory-server` so it runs anywhere without setup! If `GEMINI_API_KEY` is not provided, the AI Assistant provides deterministic database explanations).*
+*(If `MONGODB_URI` is blank, the server automatically starts an in-memory MongoDB server. If `GEMINI_API_KEY` is not provided, the AI Assistant uses the deterministic MongoDB analytics fallback engine).*
 
-### 3. Seed Demo Data
+### 3. Run the Servers
 
-```bash
-cd backend
-npm run seed
-```
-
-### 4. Running the Application
-
-Start Backend API (Terminal 1):
+**Backend API**:
 ```bash
 cd backend
 npm run dev
 ```
 
-Start Frontend App (Terminal 2):
+**Frontend Application**:
 ```bash
 cd frontend
 npm run dev
 ```
 
-Open your browser at `http://localhost:3000`.
+* **Frontend Web App**: `http://localhost:3000`
+* **Backend API Health Check**: `http://localhost:5000/api/health`
 
 ---
 
-## ⚠️ Prototype Limitations & Future Improvements
-- **Prototype Dataset**: Uses seeded data (~75 products, 525 price history entries, audit records) to demonstrate full platform capabilities cleanly.
-- **Scraper Execution**: Playwright scrapers are structured modularly in `backend/scrapers/` ready for production deployment with proxy rotation.
-- **Future Enhancements**: Add daily email alert triggers on sharp price drops, automated OCR for banner images, and exportable PDF/Excel reports.
-
----
-
-## 👨‍💻 Author
-Developed for **Bridge AI AIML Intern Evaluation Project**.
+## 📄 License & Attribution
+Developed for **Bridge AI AIML Evaluation Project**.

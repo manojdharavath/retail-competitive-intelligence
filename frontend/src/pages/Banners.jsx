@@ -7,7 +7,7 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recha
 const BRAND_COLORS = {
   Intel: '#0068B5',
   AMD: '#ED1C24',
-  Qualcomm: '#3253DC',
+  Qualcomm: '#9333EA', // Distinct Vibrant Purple
   Apple: '#475569'
 };
 
